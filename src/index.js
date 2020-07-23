@@ -10,6 +10,9 @@ import 'fetch-polyfill';
 
 
 import togglePopUp from './modules/togglePopUp';
+import sendForm from './modules/sendForm';
 
 // modal window popupCall
 togglePopUp();
+// send-ajax-form
+sendForm();
