@@ -7,3 +7,9 @@ elementClosest(window);
 import 'formdata-polyfill';
 import 'es6-promise';
 import 'fetch-polyfill';
+
+
+import togglePopUp from './modules/togglePopUp';
+
+// modal window popupCall
+togglePopUp();
