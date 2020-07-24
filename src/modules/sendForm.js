@@ -5,7 +5,8 @@ const sendForm = () => {
 
 	const statusMessage = document.createElement('div');
 	statusMessage.style.cssText = 'font-size: 2rem;';
-	statusMessage.style.color = '#ffffff';
+	statusMessage.style.fontWeight = 'bold';
+	statusMessage.style.color = '#85be32';
 
 	const hideStatusMessage = () => {
 		statusMessage.style.display = 'none';
