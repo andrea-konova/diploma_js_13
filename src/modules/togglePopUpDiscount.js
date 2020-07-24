@@ -12,7 +12,6 @@ const togglePopUpDiscount = () => {
 			popupDiscount.style.display = 'none';
 		}
 
-
 	});
 
 };
