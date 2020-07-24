@@ -2,6 +2,7 @@ const togglePopUp = () => {
 	const popupCheck = document.querySelector('.popup-check'),
 		popupCall = document.querySelector('.popup-call'),
 		popupDiscount = document.querySelector('.popup-discount'),
+		popupConsultation = document.querySelector('.popup-consultation'),
 		body = document.querySelector('body');
 
 	body.addEventListener('click', event => {
@@ -29,6 +30,14 @@ const togglePopUp = () => {
 		}
 		if (target.matches('.popup-close') || target.matches('.popup-check')) {
 			popupCheck.style.display = 'none';
+		}
+
+		// togglePopUpConsultation
+		if (target.matches('.consultation-btn')) {
+			popupConsultation.style.display = 'block';
+		}
+		if (target.matches('.popup-close') || target.matches('.popup-consultation')) {
+			popupConsultation.style.display = 'none';
 		}
 
 	});
