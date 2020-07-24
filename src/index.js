@@ -9,10 +9,13 @@ import 'es6-promise';
 import 'fetch-polyfill';
 
 
-import togglePopUp from './modules/togglePopUp';
+import togglePopUpCall from './modules/togglePopUpCall';
+import togglePopUpDiscount from './modules/togglePopUpDiscount';
 import sendForm from './modules/sendForm';
 
 // modal window popupCall
-togglePopUp();
+togglePopUpCall();
+// modal window popupDiscount
+togglePopUpDiscount();
 // send-ajax-form
 sendForm();

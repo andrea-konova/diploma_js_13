@@ -1,4 +1,4 @@
-const togglePopUp = () => {
+const togglePopUpCall = () => {
 	const popupCall = document.querySelector('.popup-call'),
 		body = document.querySelector('body');
 
@@ -16,4 +16,4 @@ const togglePopUp = () => {
 	});
 };
 
-export default togglePopUp;
+export default togglePopUpCall;
