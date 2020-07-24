@@ -14,6 +14,7 @@ import 'fetch-polyfill';
 import togglePopUp from './modules/togglePopUp';
 import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
+import addSentence from './modules/addSentence';
 
 // modal window popupCall
 // togglePopUpCall();
@@ -25,3 +26,5 @@ togglePopUp();
 sendForm();
 // accordion
 accordion();
+// addSentence
+addSentence();
