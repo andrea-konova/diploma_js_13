@@ -13,6 +13,7 @@ import 'fetch-polyfill';
 // import togglePopUpDiscount from './modules/togglePopUpDiscount';
 import togglePopUp from './modules/togglePopUp';
 import sendForm from './modules/sendForm';
+import accordion from './modules/accordion';
 
 // modal window popupCall
 // togglePopUpCall();
@@ -22,3 +23,5 @@ import sendForm from './modules/sendForm';
 togglePopUp();
 // send-ajax-form
 sendForm();
+// accordion
+accordion();
