@@ -20,6 +20,7 @@ const calc = () => {
 			diam2 = 0,
 			num2 = 0,
 			bilge = 0,
+			bilgeValue,
 			price;
 
 		if (typeSeptic.checked) {
@@ -29,6 +30,7 @@ const calc = () => {
 					second[i].classList.add('hidden');
 				}
 			});
+
 		} else {
 			price = 15000;
 			second.forEach((item, i) => {
@@ -44,6 +46,7 @@ const calc = () => {
 		if (diamValue1 === '2 метра') {
 			diam = price * 0.2;
 		}
+
 		if (numValue1 === '2 штуки') {
 			num = price * 0.3;
 		} else if (numValue1 === '3 штуки') {
@@ -51,12 +54,12 @@ const calc = () => {
 		}
 
 		if (bilgeSeptic.checked) {
+			bilgeValue = 'Да';
 			if (typeSeptic.checked) {
 				bilge = 1000;
 			} else {
 				bilge = 2000;
 			}
-
 		}
 
 		const diamValue2 = secondDiam.options[secondDiam.selectedIndex].value,
@@ -65,6 +68,7 @@ const calc = () => {
 		if (diamValue2 === '2 метра') {
 			diam2 = price * 0.2;
 		}
+
 		if (numValue2 === '2 штуки') {
 			num2 = price * 0.3;
 		} else if (numValue2 === '3 штуки') {
@@ -75,13 +79,13 @@ const calc = () => {
 		calcResult.value = total;
 
 		result = {
-			price,
-			'diam1': diamValue1,
-			'num1': numValue2,
-			'diam2': diamValue2,
-			'num2': numValue2,
-			bilge,
-			'total': calcResult.value
+			'Цена': price,
+			'Диаметр первого колодца': diamValue1,
+			'Количество колец первого колодца': numValue2,
+			'Диаметр второго колодца': diamValue2,
+			'Количество колец второго колодца': numValue2,
+			'Наличие днища': bilgeValue,
+			'Всего сумма': calcResult.value
 		};
 
 		console.log(result);
