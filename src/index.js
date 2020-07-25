@@ -15,6 +15,7 @@ import togglePopUp from './modules/togglePopUp';
 import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
 import addSentence from './modules/addSentence';
+import calc from './modules/calc';
 
 // modal window popupCall
 // togglePopUpCall();
@@ -28,3 +29,5 @@ sendForm();
 accordion();
 // addSentence
 addSentence();
+// calc
+calc();
