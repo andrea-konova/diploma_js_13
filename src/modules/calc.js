@@ -11,6 +11,8 @@ const calc = () => {
 		second = constructor.querySelectorAll('.hidden'),
 		calcResult = document.getElementById('calc-result');
 
+	let result = {};
+
 	const countSum = () => {
 		let total = 0,
 			diam = 0,
@@ -23,7 +25,7 @@ const calc = () => {
 		if (typeSeptic.checked) {
 			price = 10000;
 			second.forEach((item, i) => {
-				if (item.classList.contains('hidden')) {
+				if (!item.classList.contains('hidden')) {
 					second[i].classList.add('hidden');
 				}
 			});
@@ -71,6 +73,18 @@ const calc = () => {
 
 		total = price + diam + num + bilge + diam2 + num2;
 		calcResult.value = total;
+
+		result = {
+			price,
+			'diam1': diamValue1,
+			'num1': numValue2,
+			'diam2': diamValue2,
+			'num2': numValue2,
+			bilge,
+			'total': calcResult.value
+		};
+
+		console.log(result);
 	};
 
 	constructor.addEventListener('change', event => {
