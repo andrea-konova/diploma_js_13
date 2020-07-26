@@ -8,7 +8,6 @@ import 'formdata-polyfill';
 import 'es6-promise';
 import 'fetch-polyfill';
 
-const modalState = {};
 
 import togglePopUp from './modules/togglePopUp';
 import sendForm from './modules/sendForm';
@@ -18,8 +17,8 @@ import calc from './modules/calc';
 
 
 togglePopUp();
-calc(modalState);
-sendForm(modalState);
+calc();
+sendForm();
 accordion();
 addSentence();
 

@@ -1,4 +1,4 @@
-const calc = state => {
+const calc = () => {
 	const constructor = document.querySelector('.constructor'),
 		panel = constructor.querySelectorAll('.panel-collapse'),
 		typeSeptic = document.getElementById('myonoffswitch'),
@@ -17,7 +17,6 @@ const calc = state => {
 			diam2 = 0,
 			num2 = 0,
 			bilge = 0,
-			bilgeValue,
 			price;
 
 		if (typeSeptic.checked) {
@@ -51,7 +50,6 @@ const calc = state => {
 		}
 
 		if (bilgeSeptic.checked) {
-			bilgeValue = 'Да';
 			if (typeSeptic.checked) {
 				bilge = 1000;
 			} else {
@@ -75,17 +73,6 @@ const calc = state => {
 		total = price + diam + num + bilge + diam2 + num2;
 		calcResult.value = total;
 
-		state = {
-			'Цена': price,
-			'Диаметр первого колодца': diamValue1,
-			'Количество колец первого колодца': numValue2,
-			'Диаметр второго колодца': diamValue2,
-			'Количество колец второго колодца': numValue2,
-			'Наличие днища': bilgeValue,
-			'Всего сумма': calcResult.value
-		};
-
-		console.log(state);
 	};
 
 	constructor.addEventListener('change', event => {
