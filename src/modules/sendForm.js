@@ -1,4 +1,4 @@
-const sendForm = () => {
+const sendForm = state => {
 	const errorMessage = 'Что-то пошло не так...',
 		loadMessage = 'Загрузка...',
 		successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
@@ -27,6 +27,12 @@ const sendForm = () => {
 		statusMessage.style.display = 'block';
 		statusMessage.textContent = loadMessage;
 		const formData = new FormData(form);
+		// if (form.getAttribute('data-calc') === "end") {
+		//   for (let key in state) {
+		//     formData.append(key, state[key]);
+		//   }
+		// }
+		console.log(state);
 		const body = {};
 		formData.forEach((val, key) => {
 			body[key] = val;
@@ -70,6 +76,10 @@ const sendForm = () => {
 
 		if (target.matches('name_1') || target.matches('#name_2')) {
 			target.value = target.value.replace(/[^а-яё\s]/ig, '');
+		}
+
+		if (target.classList.contains('mess')) {
+			target.value = target.value.replace(/[^,.;!?а-яА-Я -]/s, '');
 		}
 
 	});

@@ -1,7 +1,6 @@
-const calc = () => {
+const calc = state => {
 	const constructor = document.querySelector('.constructor'),
 		panel = constructor.querySelectorAll('.panel-collapse'),
-		panelDefault = constructor.querySelectorAll('.panel-default'),
 		typeSeptic = document.getElementById('myonoffswitch'),
 		bilgeSeptic = document.getElementById('myonoffswitch-two'),
 		firstDiam = document.getElementById('first_diam'),
@@ -10,8 +9,6 @@ const calc = () => {
 		secondNum = document.getElementById('second_num'),
 		second = constructor.querySelectorAll('.hidden'),
 		calcResult = document.getElementById('calc-result');
-
-	let result = {};
 
 	const countSum = () => {
 		let total = 0,
@@ -78,7 +75,7 @@ const calc = () => {
 		total = price + diam + num + bilge + diam2 + num2;
 		calcResult.value = total;
 
-		result = {
+		state = {
 			'Цена': price,
 			'Диаметр первого колодца': diamValue1,
 			'Количество колец первого колодца': numValue2,
@@ -88,7 +85,7 @@ const calc = () => {
 			'Всего сумма': calcResult.value
 		};
 
-		console.log(result);
+		console.log(state);
 	};
 
 	constructor.addEventListener('change', event => {
@@ -103,13 +100,10 @@ const calc = () => {
 		let target = event.target;
 
 		if (target.closest('.construct-btn')) {
-			panelDefault.forEach((item, i) => {
-				if (item.contains(target)) {
+			panel.forEach((item, i) => {
+				if (item.contains(target) && panel[i + 1]) {
 					panel[i].classList.remove('in');
-					console.log('да');
-				} else {  // нужно довести до ума
-					panel[i].classList.add('in');
-					console.log('нет');
+					panel[i + 1].classList.add('in');
 				}
 			});
 		}

@@ -8,26 +8,18 @@ import 'formdata-polyfill';
 import 'es6-promise';
 import 'fetch-polyfill';
 
+const modalState = {};
 
-// import togglePopUpCall from './modules/togglePopUpCall';
-// import togglePopUpDiscount from './modules/togglePopUpDiscount';
 import togglePopUp from './modules/togglePopUp';
 import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
 import addSentence from './modules/addSentence';
 import calc from './modules/calc';
 
-// modal window popupCall
-// togglePopUpCall();
-// modal window popupDiscount
-// togglePopUpDiscount();
-// modal window popupCheck
+
 togglePopUp();
-// send-ajax-form
-sendForm();
-// accordion
+calc(modalState);
+sendForm(modalState);
 accordion();
-// addSentence
 addSentence();
-// calc
-calc();
+
