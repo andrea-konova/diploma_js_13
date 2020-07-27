@@ -56,17 +56,22 @@ const sendForm = () => {
 		statusMessage.textContent = loadMessage;
 		const body = {};
 		if (form.getAttribute('data-calc') === 'end') {
-			dataSept.septicType = typeSeptic.checked;
 			dataSept.firstWell.diam = firstDiam.value;
 			dataSept.firstWell.num = firstNum.value;
-			if (secondDiam.classList.contains('hidden')) { // пофиксить условие
+			if (typeSeptic.checked) { // пофиксить условие
 				dataSept.secondWell.diam = 'no';
 				dataSept.secondWell.num = 'no';
+				dataSept.septicType = '1';
 			} else {
 				dataSept.secondWell.diam = secondDiam.value;
 				dataSept.secondWell.num = secondNum.value;
+				dataSept.septicType = '2';
 			}
-			dataSept.bilge = bilgeSeptic.value;
+			if (bilgeSeptic.checked) {
+				dataSept.bilge = 'yes';
+			} else {
+				dataSept.bilge = 'no';
+			}
 			dataSept.distance = distance.value;
 			dataSept.summa = calcResult.value;
 			const formData = new FormData(form);
@@ -74,6 +79,7 @@ const sendForm = () => {
 				body[key] = val;
 			});
 			body.calcDate = dataSept;
+			distance.value = '';
 		} else if (form.getAttribute('data-calc') === 'consul') {
 			userQuest.quest = users.value;
 			const formData = new FormData(form);
