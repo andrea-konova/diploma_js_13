@@ -89,7 +89,6 @@ const sendForm = () => {
 			});
 		}
 
-
 		postDate(body)
 			.then(request => {
 				if (request.status !== 200) {
@@ -110,10 +109,30 @@ const sendForm = () => {
 		}
 	};
 
+	const elementsForm = [];
+
+	const valid = target => {
+		for (const elem of target.elements) {
+			if (elem.tagName.toLowerCase() !== 'button' && elem.type !== 'button') {
+				elementsForm.push(elem);
+			}
+		}
+
+		elementsForm.forEach(elem => {
+			if (!elem.value) {
+				// elem.style.border = '1px solid red';
+				return;
+			} else {
+				// elem.style.border = ''; // почему-то не срабатывает
+				postForm(target);
+			}
+		});
+	};
+
 	document.addEventListener('submit', event => {
 		event.preventDefault();
 		const target = event.target;
-		postForm(target);
+		valid(target);
 	});
 
 	document.addEventListener('input', event => {
@@ -130,8 +149,6 @@ const sendForm = () => {
 		if (target.classList.contains('mess')) {
 			target.value = target.value.replace(/[^,.;!?а-яА-Я -]/s, '');
 		}
-
-
 
 	});
 
