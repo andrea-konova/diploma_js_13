@@ -50,7 +50,6 @@ const sendForm = () => {
 	});
 
 	const postForm = target => {
-		console.log(target);
 		const form = target;
 		form.appendChild(statusMessage);
 		statusMessage.style.display = 'block';
@@ -75,13 +74,14 @@ const sendForm = () => {
 				body[key] = val;
 			});
 			body.calcDate = dataSept;
-		} else if (form.getAttribute('data-calc') === 'quest') {
+		} else if (form.getAttribute('data-calc') === 'consul') {
 			userQuest.quest = users.value;
 			const formData = new FormData(form);
 			formData.forEach((val, key) => {
 				body[key] = val;
 			});
 			body.question = userQuest;
+			users.value = '';
 		} else {
 			const formData = new FormData(form);
 			formData.forEach((val, key) => {
@@ -123,10 +123,6 @@ const sendForm = () => {
 			target.value = target.value.replace(/[^+\d]/g, '');
 		}
 
-		if (target.matches('.form-email')) {
-			target.value = target.value.replace(/[а-яА-Я]/g, '');
-		}
-
 		if (target.matches('name_1') || target.matches('#name_2')) {
 			target.value = target.value.replace(/[^а-яё\s]/ig, '');
 		}
@@ -134,6 +130,8 @@ const sendForm = () => {
 		if (target.classList.contains('mess')) {
 			target.value = target.value.replace(/[^,.;!?а-яА-Я -]/s, '');
 		}
+
+
 
 	});
 
