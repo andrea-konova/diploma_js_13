@@ -10,7 +10,8 @@ const sendForm = () => {
 		secondNum = document.getElementById('second_num'),
 		distance = document.getElementById('length'),
 		calcResult = document.getElementById('calc-result'),
-		users = document.querySelector('input[name="user_quest"]');
+		users = document.querySelector('input[name="user_quest"]'),
+		popUpWindows = document.querySelectorAll('.popup');
 
 	const userQuest = {
 		quest: '',
@@ -40,6 +41,12 @@ const sendForm = () => {
 		statusMessage.style.display = 'none';
 	};
 
+	const hidePopup = () => {
+		popUpWindows.forEach(elem => {
+			elem.style.display = 'none';
+		});
+	};
+
 	const postDate = body => fetch('./server.php', {
 		method: 'POST',
 		headers: {
@@ -58,7 +65,7 @@ const sendForm = () => {
 		if (form.getAttribute('data-calc') === 'end') {
 			dataSept.firstWell.diam = firstDiam.value;
 			dataSept.firstWell.num = firstNum.value;
-			if (typeSeptic.checked) { // пофиксить условие
+			if (typeSeptic.checked) {
 				dataSept.secondWell.diam = 'no';
 				dataSept.secondWell.num = 'no';
 				dataSept.septicType = '1';
@@ -80,6 +87,7 @@ const sendForm = () => {
 			});
 			body.calcDate = dataSept;
 			distance.value = '';
+			calcResult.value = '';
 		} else if (form.getAttribute('data-calc') === 'consul') {
 			userQuest.quest = users.value;
 			const formData = new FormData(form);
@@ -102,10 +110,12 @@ const sendForm = () => {
 				}
 				statusMessage.textContent = successMessage;
 				setTimeout(hideStatusMessage, 3000);
+				setTimeout(hidePopup, 4000);
 			})
 			.catch(error => {
 				statusMessage.textContent = errorMessage;
 				setTimeout(hideStatusMessage, 3000);
+				setTimeout(hidePopup, 4000);
 				console.error(error);
 			});
 
@@ -148,7 +158,7 @@ const sendForm = () => {
 			target.value = target.value.replace(/[^+\d]/g, '');
 		}
 
-		if (target.matches('name_1') || target.matches('#name_2')) {
+		if (target.matches('input[name="user_name"]')) {
 			target.value = target.value.replace(/[^а-яё\s]/ig, '');
 		}
 
